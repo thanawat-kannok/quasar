@@ -1,0 +1,263 @@
+<template>
+  <q-page class="q-pa-sm" style="min-height: 100vh">
+    <q-card>
+      <q-card-section class="row q-pa-md">
+        <q-btn
+          color="primary"
+          icon="add"
+          label="เพิ่มวิชา"
+          style="max-width: 300px"
+        />
+      </q-card-section>
+      <q-card-section class="row q-pa-md">
+        <q-input
+          square
+          standout
+          v-model="text"
+          label="วิชา"
+          style="max-width: 300px"
+        />
+        <q-input
+          square
+          standout
+          class="q-ml-md"
+          v-model="text"
+          label="กลุ่มสาระ"
+          style="max-width: 300px"
+        />
+        <q-btn color="primary" class="on-right" icon="search" label="ค้นหา" />
+      </q-card-section>
+    </q-card>
+
+    <q-card class="q-mt-md row">
+      <div id="q-app" style="width;: 100%">
+        <div class="">
+          <q-table title="" :rows="rows" :columns="columns" row-key="name">
+            <template v-slot:header="props">
+              <q-tr :props="props">
+                <q-th v-for="col in props.cols" :key="col.name" :props="props">
+                  {{ col.label }}
+                </q-th>
+                <q-th auto-width></q-th>
+              </q-tr>
+            </template>
+
+            <template v-slot:body="props">
+              <q-tr :props="props">
+                <q-td v-for="col in props.cols" :key="col.name" :props="props">
+                  {{ col.value }}
+                </q-td>
+                <q-td class="">
+                  <q-btn
+                    size="md"
+                    color="blue-3"
+                    text-color="blue-8"
+                    @click="props.expand = !props.expand"
+                    label="แก้ไข"
+                    class="q-mr-sm"
+                  ></q-btn>
+                  <q-btn
+                    size="md"
+                    outline
+                    color="red-8"
+                    text-color="red-8"
+                    @click="props.expand = !props.expand"
+                    label="ลบ"
+                  ></q-btn>
+                </q-td>
+              </q-tr>
+              <q-tr v-show="props.expand" :props="props">
+                <q-td colspan="100%">
+                  <div class="text-left">
+                    This is expand slot for row above: {{ props.row.name }}.
+                  </div>
+                </q-td>
+              </q-tr>
+            </template>
+          </q-table>
+        </div>
+      </div>
+    </q-card>
+  </q-page>
+</template>
+
+<script>
+import { defineComponent } from "vue";
+import { ref } from "vue";
+
+const columns = [
+  {
+    name: "number",
+    required: true,
+    label: "ลำดับ",
+    align: "left",
+    field: (row) => row.name,
+    format: (val) => `${val}`,
+    sortable: true,
+  },
+  {
+    name: "code",
+    align: "center",
+    label: "รหัส",
+    field: "calories",
+    sortable: true,
+  },
+  { name: "name_subject", label: "ชื่อวิชา", field: "fat", sortable: true },
+  { name: "group", label: "กลุ่มสาระ", field: "carbs" },
+  { name: "type", label: "ประเภท", field: "protein" },
+  { name: "sodium", label: "หน่วยกิจ", field: "sodium" },
+  {
+    name: "period",
+    label: "คาบ/สัปดาห์",
+    field: "calcium",
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
+    name: "class",
+    label: "ระดับชั้น",
+    field: "class",
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
+    name: "sector",
+    label: "ภาค",
+    field: "sector",
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
+    name: "status",
+    label: "สถานะ",
+    field: "status",
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+];
+const rows = [
+  {
+    name: "Frozen Yogurt",
+    calories: 159,
+    fat: 6.0,
+    carbs: 24,
+    protein: 4.0,
+    sodium: 87,
+    calcium: "14%",
+    iron: "1%",
+  },
+  {
+    name: "Ice cream sandwich",
+    calories: 237,
+    fat: 9.0,
+    carbs: 37,
+    protein: 4.3,
+    sodium: 129,
+    calcium: "8%",
+    iron: "1%",
+  },
+  {
+    name: "Eclair",
+    calories: 262,
+    fat: 16.0,
+    carbs: 23,
+    protein: 6.0,
+    sodium: 337,
+    calcium: "6%",
+    iron: "7%",
+  },
+  {
+    name: "Cupcake",
+    calories: 305,
+    fat: 3.7,
+    carbs: 67,
+    protein: 4.3,
+    sodium: 413,
+    calcium: "3%",
+    iron: "8%",
+  },
+  {
+    name: "Gingerbread",
+    calories: 356,
+    fat: 16.0,
+    carbs: 49,
+    protein: 3.9,
+    sodium: 327,
+    calcium: "7%",
+    iron: "16%",
+  },
+  {
+    name: "Jelly bean",
+    calories: 375,
+    fat: 0.0,
+    carbs: 94,
+    protein: 0.0,
+    sodium: 50,
+    calcium: "0%",
+    iron: "0%",
+  },
+  {
+    name: "Lollipop",
+    calories: 392,
+    fat: 0.2,
+    carbs: 98,
+    protein: 0,
+    sodium: 38,
+    calcium: "0%",
+    iron: "2%",
+  },
+  {
+    name: "Honeycomb",
+    calories: 408,
+    fat: 3.2,
+    carbs: 87,
+    protein: 6.5,
+    sodium: 562,
+    calcium: "0%",
+    iron: "45%",
+  },
+  {
+    name: "Donut",
+    calories: 452,
+    fat: 25.0,
+    carbs: 51,
+    protein: 4.9,
+    sodium: 326,
+    calcium: "2%",
+    iron: "22%",
+  },
+  {
+    name: "KitKat",
+    calories: 518,
+    fat: 26.0,
+    carbs: 65,
+    protein: 7,
+    sodium: 54,
+    calcium: "12%",
+    iron: "6%",
+  },
+];
+export default {
+  name: "Subject-",
+  setup() {
+    const selected = ref([]);
+    return {
+      selected,
+      columns,
+      rows,
+      getSelectedString() {
+        return selected.value.length === 0
+          ? ""
+          : `${selected.value.length} record${
+              selected.value.length > 1 ? "s" : ""
+            } selected of ${rows.length}`;
+      },
+    };
+  },
+};
+</script>
+<style lang="sass">
+edit
+  color: $red-1
+  background-color: $grey-5
+</style>
