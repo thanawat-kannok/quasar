@@ -7,6 +7,7 @@
           icon="add"
           label="เพิ่มวิชา"
           style="max-width: 300px"
+          to="/add_subject"
         />
       </q-card-section>
       <q-card-section class="row q-pa-md">
@@ -25,7 +26,13 @@
           label="กลุ่มสาระ"
           style="max-width: 300px"
         />
-        <q-btn color="primary" class="on-right" icon="search" label="ค้นหา" />
+        <q-btn
+          color="primary"
+          class="on-left"
+          icon="search"
+          label="ค้นหา"
+          style="position: absolute; right: 0"
+        />
       </q-card-section>
     </q-card>
 

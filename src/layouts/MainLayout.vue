@@ -52,7 +52,7 @@
     </q-header>
 
     <q-drawer
-      style="background-color: darkgrey"
+      style="background-color: darkgrey; max-width: 100px"
       v-model="leftDrawerOpen"
       show-if-above
       bordered
