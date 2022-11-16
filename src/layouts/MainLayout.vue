@@ -1108,9 +1108,7 @@ export default {
       miniState,
       tab: ref("school"),
       splitterModel: ref(20),
-      icon: ref(false),
-      bar: ref(false),
-      bar2: ref(false),
+
       toolbar: ref(false),
       link: "inbox",
 
