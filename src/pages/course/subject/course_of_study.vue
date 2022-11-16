@@ -5,7 +5,7 @@
         <q-btn
           color="primary"
           icon="add"
-          label="เพิ่มวิชา"
+          label="เพิ่มหลักสูตรแผนการเรียน"
           style="max-width: 300px"
           to="/add_subject"
         />
@@ -15,7 +15,7 @@
           square
           standout
           v-model="text"
-          label="วิชา"
+          label="หลักสูตร"
           style="max-width: 300px"
         />
         <q-input
@@ -23,7 +23,7 @@
           standout
           class="q-ml-md"
           v-model="text"
-          label="กลุ่มสาระ"
+          label="หน่วยกิจกรรม"
           style="max-width: 300px"
         />
         <q-btn

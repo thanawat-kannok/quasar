@@ -17,6 +17,18 @@ const routes = [
         path: "/add_subject",
         component: () => import("pages/course/subject/add_subject.vue"),
       },
+      {
+        path: "/group",
+        component: () => import("pages/course/subject/group.vue"),
+      },
+      {
+        path: "/student_activities",
+        component: () => import("pages/course/subject/student_activities.vue"),
+      },
+      {
+        path: "/course_of_study",
+        component: () => import("pages/course/subject/course_of_study.vue"),
+      },
     ],
   },
 

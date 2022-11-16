@@ -7,12 +7,26 @@
             <q-card flat class="bg-white text-black">
               <div class="row">
                 <div class="col-md-12 col-xs-12">
+                  <center>
+                    <i
+                      class="material-icons text-green-10"
+                      style="
+                        border-radius: 100px;
+                        background: #fff;
+                        font-size: 100px;
+                        margin-top: -35px;
+
+                        border: solid #fff 2px;
+                      "
+                      >account_circle</i
+                    >
+                  </center>
                   <div class="q-pa-md">
-                    <div
+                    <!-- <div
                       class="text-h6 q-pb-md text-blue-8 text-center text-weight-bolder"
                     >
                       เข้าสู่ระบบ
-                    </div>
+                    </div> -->
                     <q-form
                       class="q-gutter-md"
                       @submit="onSubmit"
@@ -32,17 +46,17 @@
                         label="Password"
                         lazy-rules
                       />
-
-                      <div class="">
-                        <q-btn label="Login" type="submit" color="primary" />
-                        <q-btn
-                          label="Reset"
-                          type="reset"
-                          color="primary"
-                          flat
-                          class="q-ml-sm"
-                        />
-                      </div>
+                      <center>
+                        <div class="">
+                          <q-btn label="ยกเลิก" type="reset" color="red" />
+                          <q-btn
+                            label="เข้าสู่ระบบ"
+                            type="submit"
+                            color="primary"
+                            class="q-ma-md"
+                          />
+                        </div>
+                      </center>
                     </q-form>
                   </div>
                 </div>

@@ -1,10 +1,9 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-  /></q-page>
+  <div class="" style="max-width: 150px">
+    <div class="q-gutter-md">
+      <q-select filled v-model="model" :options="options" label="Filled" />
+    </div>
+  </div>
 </template>
 
 <script>
