@@ -133,18 +133,7 @@ const columns = [
   },
   { name: "action", label: "", field: "action" },
 ];
-const rows = [
-  {
-    name: "1",
-    code: "n101",
-    name_subject: "ภาษาไทย 1",
-    carbs: 24,
-    protein: 4.0,
-    sodium: 87,
-    calcium: "14%",
-    iron: "1%",
-  },
-];
+const rows = [];
 export default {
   name: "Subject-",
   setup() {
